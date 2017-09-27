@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title><ui:insert name="title">JSF In-Class Activity</ui:insert></title>
+	<!-- library refers to what folder under web content -->
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<h:outputStylesheet library="css" name="stylesheet.css" />
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+</h:head> 
+<body> 
+<div id="container">
+	<div id="header" align="center">
+		<ui:insert name="header">
+			<ui:include src="/layouts/header.xhtml" />
+		</ui:insert>
+	</div>
+	
+	<div id="content">
+		<f:view>
+			<ui:insert name="content">
+				
+			</ui:insert>
+		</f:view>
+	</div>
+	
+	<div id="footer" align="center">
+		<ui:insert name="footer">
+			<ui:include src="/layouts/footer.xhtml" />
+		</ui:insert>
+	</div>
+</div>
+</body> 
+</html>
