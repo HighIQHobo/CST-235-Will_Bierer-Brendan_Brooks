@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>Meme</title>
+</h:head> 
+<body> 
+	<ui:composition template="/layouts/mainTemplate.xhtml">
+	<ui:define name="title">Home</ui:define>
+	<ui:define name="content">
+	<h:form>
+	<div class="col-md-3"></div>
+	<div class="col-md-6 main-content" style="">
+	<div align="center">
+		<h1>Lobbies</h1>
+	<hr />
+	<h:dataTable value="" var="o" styleClass="table-hover" style="width: 100%">
+		<h:column>
+			<f:facet name="header">Lobby</f:facet>
+			Brendan's Lobby
+		</h:column>
+		<h:column>
+			<f:facet name="header">User</f:facet>
+			bbrooks123
+		</h:column>
+		<h:column>
+			<f:facet name="header">Players</f:facet>
+			1/2
+		</h:column>
+		<h:column>
+			<f:facet name="header"></f:facet>
+			<button class="btn btn-primary">Join</button>
+		</h:column>
+	</h:dataTable>
+</div>
+	</div>
+	</h:form>
+	</ui:define>
+	</ui:composition>
+</body> 
+</html>
