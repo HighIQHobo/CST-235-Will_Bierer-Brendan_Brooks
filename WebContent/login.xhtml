@@ -4,9 +4,9 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>
+<head>
 
-</h:head> 
+</head> 
 <body> 
 	<ui:composition template="/layouts/template.xhtml">
 	<ui:define name="title">Login</ui:define>
@@ -18,23 +18,23 @@
 			<div class="col-md-6" id="register-section"><h1>Register</h1></div>
 			<div class="col-md-12" style="margin-top: 30px">
 			<div class="register-form">
-				<h:form>
-					First Name: <h:inputText class="form-control" value="#{user.firstName}" title="" /><br/><br/>
-					Last Name: <h:inputText class="form-control" value="#{user.lastName}" title="" /><br/>
-					Email: <h:inputText class="form-control" value="#{user.email}" title="" /><br/>
-					Phone: <h:inputText class="form-control" value="#{user.phone}" title="" /><br/>
-					Username: <h:inputText class="form-control" value="#{user.username}" title="" /><br/>
-					Password: <h:inputText class="form-control" value="#{user.password}" title="" /><br/>
-					Confirm Password: <h:inputText class="form-control" value="" title="" /><br/>
-					<h:commandButton action="#{formController.onSubmit}" value="submit" class="btn btn-default "/>
-				</h:form>
+				<form action="Registration" method="post">
+					First Name: <input type="text" class="form-control" name="firstName" /><br/><br/>
+					Last Name: <input type="text" class="form-control" name="lastName" title="" /><br/>
+					Email: <input type="text" class="form-control" name="email" title="" /><br/>
+					Phone: <input type="text" class="form-control" name="phone" title="" /><br/>
+					Username: <input type="text" class="form-control" name="username" title="" /><br/>
+					Password: <input type="text" class="form-control" name="password" title="" /><br/>
+					Confirm Password: <input type="text" class="form-control" name="confirm" title="" /><br/>
+					<input type="submit" value="Register" class="btn btn-default "/>
+				</form>
 				</div>
 			<div class="login-form">
-				<h:form>
-					Email: <h:inputText class="form-control" value="#{user.email}" title="" /><br/>
-					Password: <h:inputText class="form-control" value="#{user.password}" title="" /><br/>
-					<h:commandButton action="#{formController.onSubmit}" value="submit" class="btn btn-default "/>
-				</h:form>
+				<form action="Login" method="post">
+					Email: <input type="text" class="form-control" name="emailLogin" title="" /><br/>
+					Password: <input type="text" class="form-control" name="passLogin" title="" /><br/>
+					<input type="submit" value="Login" class="btn btn-default "/>
+				</form>
 				</div>
 			</div>
 			</div>
