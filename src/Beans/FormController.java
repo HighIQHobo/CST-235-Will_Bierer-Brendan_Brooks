@@ -11,6 +11,6 @@ public class FormController {
 		User user = context.getApplication().evaluateExpressionGet(context, "#{user}", User.class);
 		
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
-		return "TestResponse.xhtml";
+		return "main.xhtml";
 	}
 }

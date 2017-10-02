@@ -18,7 +18,7 @@
 			<div class="col-md-6" id="register-section"><h1>Register</h1></div>
 			<div class="col-md-12" style="margin-top: 30px">
 			<div class="register-form">
-				<form action="Registration" method="post">
+				<h:form action="Registration" method="post">
 					First Name: <input type="text" class="form-control" name="firstName" /><br/><br/>
 					Last Name: <input type="text" class="form-control" name="lastName" title="" /><br/>
 					Email: <input type="text" class="form-control" name="email" title="" /><br/>
@@ -27,13 +27,13 @@
 					Password: <input type="text" class="form-control" name="password" title="" /><br/>
 					Confirm Password: <input type="text" class="form-control" name="confirm" title="" /><br/>
 					<input type="submit" value="Register" class="btn btn-default "/>
-				</form>
+				</h:form>
 				</div>
 			<div class="login-form">
 				<form action="Login" method="post">
 					Email: <input type="text" class="form-control" name="emailLogin" title="" /><br/>
 					Password: <input type="text" class="form-control" name="passLogin" title="" /><br/>
-					<input type="submit" value="Login" class="btn btn-default "/>
+					<h:button type="submit" value="Login" class="btn btn-default" outcome="main.xhtml"/>
 				</form>
 				</div>
 			</div>
