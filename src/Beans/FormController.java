@@ -2,6 +2,8 @@ package Beans;
 import javax.faces.bean.*;
 import javax.faces.context.*;
 
+import models.User;
+
 @ManagedBean
 @ViewScoped
 public class FormController {

@@ -1,4 +1,4 @@
-package Beans;
+package models;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -18,6 +18,8 @@ public class User
 	{
 		this.firstName = "";
 		this.lastName = "";
+		this.username = "user";
+		this.password = "pass";
 	}
 
 	public String getFirstName() 

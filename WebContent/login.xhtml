@@ -30,11 +30,13 @@
 				</h:form>
 				</div>
 			<div class="login-form">
-				<form action="Login" method="post">
-					Email: <input type="text" class="form-control" name="emailLogin" title="" /><br/>
-					Password: <input type="text" class="form-control" name="passLogin" title="" /><br/>
-					<h:button type="submit" value="Login" class="btn btn-default" outcome="main.xhtml"/>
-				</form>
+				<h:form action="#{formController}" method="post">
+					Username: <h:inputText id="username" value="#{user.username}" /><br/>
+					<h:message for="username"></h:message><br/>
+					Password: <h:inputText id="password" value="#{user.password}" /><br/>
+					<h:message for="password"></h:message><br/>
+					<h:commandButton value="submit" action="#{formController.onSubmit}"/>
+				</h:form>
 				</div>
 			</div>
 			</div>
