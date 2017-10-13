@@ -11,9 +11,10 @@
 	<ui:composition template="/layouts/template.xhtml">
 	<ui:define name="title">Login</ui:define>
 	<ui:define name="content">
+	<div class="login">
 	<div class="col-md-3"></div>
 	<div class="col-md-6">
-		<div class="login">
+		<div class="login-contain">
 			<div class="col-md-6" id="login-section"><h1>Login</h1></div>
 			<div class="col-md-6" id="register-section"><h1>Register</h1></div>
 			<div class="col-md-12" style="margin-top: 30px">
@@ -36,6 +37,7 @@
 					<h:button type="submit" value="Login" class="btn btn-default" outcome="main.xhtml"/>
 				</form>
 				</div>
+			</div>
 			</div>
 			</div>
 		</div>
