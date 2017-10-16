@@ -1,4 +1,4 @@
-package Beans;
+package controllers;
 import javax.faces.bean.*;
 import javax.faces.context.*;
 
@@ -13,6 +13,11 @@ public class FormController {
 		User user = context.getApplication().evaluateExpressionGet(context, "#{user}", User.class);
 		
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
-		return "main.xhtml";
+		
+		if(user.getUsername() == "user" && user.getPassword() == "pass") 
+		{
+			return "main.xhtml";
+		}
+		return "login.xhtml";
 	}
 }

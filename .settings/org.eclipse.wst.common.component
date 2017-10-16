@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="assignment2a-cc">
+    <wb-module deploy-name="CST-235-Will_Bierer-Brendan_Brooks">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="assignment2a-cc"/>
-        <property name="java-output-path" value="/assignment2a-cc/build/classes"/>
+        <property name="context-root" value="CST-235-Will_Bierer-Brendan_Brooks"/>
+        <property name="java-output-path" value="/CST-235-Will_Bierer-Brendan_Brooks/build/classes"/>
     </wb-module>
 </project-modules>

@@ -26,16 +26,16 @@
 					Username: <input type="text" class="form-control" name="username" title="" /><br/>
 					Password: <input type="text" class="form-control" name="password" title="" /><br/>
 					Confirm Password: <input type="text" class="form-control" name="confirm" title="" /><br/>
-					<input type="submit" value="Register" class="btn btn-default "/>
+					<input type="submit" value="Register" class="btn btn-default"/>
 				</h:form>
 				</div>
 			<div class="login-form">
 				<h:form action="#{formController}" method="post">
-					Username: <h:inputText id="username" value="#{user.username}" /><br/>
+					Username: <h:inputText id="username" class="form-control" value="#{user.username}" /><br/>
 					<h:message for="username"></h:message><br/>
-					Password: <h:inputText id="password" value="#{user.password}" /><br/>
+					Password: <h:inputText id="password" class="form-control" value="#{user.password}" /><br/>
 					<h:message for="password"></h:message><br/>
-					<h:commandButton value="submit" action="#{formController.onSubmit}"/>
+					<h:commandButton value="submit" class="btn btn-default" action="#{formController.onSubmit}"/>
 				</h:form>
 				</div>
 			</div>
