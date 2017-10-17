@@ -28,16 +28,17 @@ public class LoginController {
 	
 	public String addLobby()
 	{
-		//FacesContext context = FacesContext.getCurrentInstance();
-		//LobbyFormModel lobby = context.getApplication().evaluateExpressionGet(context, "#{lobby}", LobbyFormModel.class);
+		FacesContext context = FacesContext.getCurrentInstance();
+		LobbyFormModel lobby = context.getApplication().evaluateExpressionGet(context, "#{lobbyFormModel}", LobbyFormModel.class);
+		
 		
 		//LobbyService service = new LobbyService();
 		
 		//List<LobbyModel> lobbies = service.getLobbies();
-		//System.out.println("lobby name" + lobby.name);
-		System.out.println("TEST");
-		//FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("lobby", lobby);
+		
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("lobbyFormModel", lobby);
 
+		System.out.println("lobby name " + lobby.name);
 		return "main.xhtml";
 	}
 }

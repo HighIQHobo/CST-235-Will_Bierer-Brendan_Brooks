@@ -12,6 +12,14 @@ public class LobbyModel {
 	public String password;
 	public int players;
 	
+	public LobbyModel() {
+		this.id = 0;
+		this.name = "";
+		this.host = "";
+		this.password = "";
+		this.players = 1;
+	}
+	
 	public LobbyModel(int id, String name, String host, String password, int players) {
 		super();
 		this.id = id;
@@ -20,7 +28,7 @@ public class LobbyModel {
 		this.password = password;
 		this.players = players;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
