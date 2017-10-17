@@ -1,18 +1,16 @@
 package models;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.*;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class LobbyFormModel {
 
-	public String name = "";
-	public String password = "";
-	 
+	public String name;
+	public String password;
+
 	public LobbyFormModel() {
-		this.name = "";
-		this.password = "";
+		name = "LobbyName";
 	}
 	
 	public String getName() {
