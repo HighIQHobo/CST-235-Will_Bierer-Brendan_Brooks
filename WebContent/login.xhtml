@@ -35,12 +35,19 @@
 				</h:form>
 				</div>
 			<div class="login-form">
+<<<<<<< HEAD
 				<h:form action="#{formController}" method="post">
 					Username: <h:inputText id="username" class="form-control" value="#{user.username}" /><br/>
 					<h:message for="username"></h:message><br/>
 					Password: <h:inputText id="password" class="form-control" value="#{user.password}" /><br/>
 					<h:message for="password"></h:message><br/>
 					<h:commandButton value="submit" class="btn btn-default" action="#{formController.onSubmit}"/>
+=======
+				<h:form action="#{loginController}">
+					Email: <input type="text" class="form-control" name="emailLogin" value="" title="" /><br/>
+					Password: <input type="text" class="form-control" name="passLogin" title="" /><br/>
+					  <h:commandButton styleClass="btn btn-primary" action="#{loginController.login}" value="Submit" />
+>>>>>>> 6434dbee13057847e906a14d9133e51a6c2678e2
 				</h:form>
 				</div>
 			</div>

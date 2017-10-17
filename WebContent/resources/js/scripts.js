@@ -27,4 +27,8 @@ jQuery(document).ready(function($){
 	$(".login-form").mouseover(function(){
 		$(".register-form").hide();
 	});
+	
+	$("#addLobbyBtn").click(function(){
+		$("#addLobby").fadeToggle();
+	});
 });

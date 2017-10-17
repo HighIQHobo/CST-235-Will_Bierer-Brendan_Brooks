@@ -11,24 +11,34 @@
 	<ui:composition template="/layouts/mainTemplate.xhtml">
 	<ui:define name="title">Home</ui:define>
 	<ui:define name="content">
-	<h:form>
+	<h:form action="lobbyController">
 	<div class="col-md-3"></div>
 	<div class="col-md-6 main-content" style="">
 	<div align="center">
-		<h1>Lobbies</h1>
+		<h1>Lobbies #{lobby.name}</h1><a href="javascript:void(0)"><button type="button" class="btn btn-primary" id="addLobbyBtn">Create</button></a>
+		<div id="addLobby">
+		<br />
+<h:form action="#{loginController}" method="post">
+	    <label for="name">Lobby Name</label>
+	    <input type="text" class="form-control" name="name" id="name" placeholder="Lobby Name" title="" />
+	    <label for="password">Password (Leave empty for no password)</label>
+	    <input type="password" name="password" class="form-control" id="password" placeholder="If no password, leave empty" title="" />
+  	<h:commandButton styleClass="btn btn-primary" action="#{loginController.addLobby}" value="Submit" />
+</h:form>
+</div>
 	<hr />
-	<h:dataTable value="" var="o" styleClass="table-hover" style="width: 100%">
+	<h:dataTable value="#{lobbyService.getLobbies()}" var="o" styleClass="table-hover" style="width: 100%">
 		<h:column>
 			<f:facet name="header">Lobby</f:facet>
-			Brendan's Lobby
+			#{o.name}
 		</h:column>
 		<h:column>
 			<f:facet name="header">User</f:facet>
-			bbrooks123
+			#{o.host}
 		</h:column>
 		<h:column>
 			<f:facet name="header">Players</f:facet>
-			1/2
+			#{o.players}/2
 		</h:column>
 		<h:column>
 			<f:facet name="header"></f:facet>
