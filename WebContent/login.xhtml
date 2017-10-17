@@ -31,11 +31,11 @@
 				</h:form>
 				</div>
 			<div class="login-form">
-				<form action="Login" method="post">
-					Email: <input type="text" class="form-control" name="emailLogin" title="" /><br/>
+				<h:form action="#{loginController}">
+					Email: <input type="text" class="form-control" name="emailLogin" value="" title="" /><br/>
 					Password: <input type="text" class="form-control" name="passLogin" title="" /><br/>
-					<h:button type="submit" value="Login" class="btn btn-default" outcome="main.xhtml"/>
-				</form>
+					  <h:commandButton styleClass="btn btn-primary" action="#{loginController.login}" value="Submit" />
+				</h:form>
 				</div>
 			</div>
 			</div>
