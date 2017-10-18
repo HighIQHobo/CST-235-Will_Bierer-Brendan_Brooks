@@ -3,14 +3,13 @@ package models;
 import javax.faces.bean.*;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class LobbyFormModel {
 
-	public String name;
-	public String password;
+	private String name;
+	private String password;
 
 	public LobbyFormModel() {
-		name = "LobbyName";
 	}
 	
 	public String getName() {

@@ -3,14 +3,17 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import interfaces.LobbyBusinessInterface;
 import models.LobbyModel;
 
-@ManagedBean
-@ViewScoped
-public class LobbyService {
+@Stateless
+@Local(LobbyBusinessInterface.class)
+public class LobbyService implements LobbyBusinessInterface {
 	
 	public List<LobbyModel> lobbies = new ArrayList<LobbyModel>();
 

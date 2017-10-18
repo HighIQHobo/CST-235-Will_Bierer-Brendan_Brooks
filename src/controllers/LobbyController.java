@@ -1,31 +1,33 @@
 package controllers;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.faces.bean.*;
 import javax.faces.context.*;
-import javax.ws.rs.POST;
+import javax.inject.Inject;
 
+import interfaces.LobbyBusinessInterface;
 import models.LobbyFormModel;
 import models.LobbyModel;
-import services.LobbyService;
 
 @ManagedBean
 @ViewScoped
 public class LobbyController {
 	
+	@Inject
+	private LobbyBusinessInterface service;
+	
 	public String addLobby()
 	{
 		FacesContext context = FacesContext.getCurrentInstance();
-		LobbyFormModel lobby = context.getApplication().evaluateExpressionGet(context, "#{lobby}", LobbyFormModel.class);
+		LobbyFormModel lobby = context.getApplication().evaluateExpressionGet(context, "#{lobbyFormModel}", LobbyFormModel.class);
 		
-		//LobbyService service = new LobbyService();
-		
-		//List<LobbyModel> lobbies = service.getLobbies();
-		System.out.println("lobby name" + lobby.name);
-		
-		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("lobby", lobby);
+		service.addLobby(new LobbyModel(0, lobby.getName(), "host", lobby.getPassword(), 0));
+
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("lobbyFormModel", lobby);
 
 		return "main.xhtml";
+	}
+	
+	public LobbyBusinessInterface getService() {
+		return service;
 	}
 }

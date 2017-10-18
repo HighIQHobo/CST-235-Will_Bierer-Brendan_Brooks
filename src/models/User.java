@@ -16,10 +16,18 @@ public class User
 	
 	public User() 
 	{
-		this.firstName = "";
-		this.lastName = "";
-		this.username = "user";
-		this.password = "pass";
+		
+	}
+
+	public User(String firstName, String lastName, String email, String phone, String username, String password)
+	{
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.username = username;
+		this.password = password;
 	}
 
 	public String getFirstName() 

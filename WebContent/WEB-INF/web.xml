@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 <?xml version= "1.0" encoding= "UTF-8" ?>
 <web-app xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance" xmlns ="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation ="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version ="3.1">
   
-  <display-name>CST-235-Will_Bierer-Brendan_Brooks</display-name>
+  <display-name>assignment2b</display-name>
   
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
-  <display-name>checker</display-name>
->>>>>>> 6434dbee13057847e906a14d9133e51a6c2678e2
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -18,7 +12,6 @@
   <servlet-mapping>
       <servlet-name>Faces Servlet</servlet-name>
       <url-pattern>*.xhtml</url-pattern>
-<<<<<<< HEAD
   </servlet-mapping>
   
   <servlet-mapping>
@@ -34,11 +27,4 @@
   <welcome-file>TestForm.xhtml</welcome-file>
   </welcome-file-list>
   
-=======
-   </servlet-mapping>
-  <servlet-mapping>
-      <servlet-name>Faces Servlet</servlet-name>
-      <url-pattern>*.jsf</url-pattern>
-   </servlet-mapping>
->>>>>>> 6434dbee13057847e906a14d9133e51a6c2678e2
 </web-app>

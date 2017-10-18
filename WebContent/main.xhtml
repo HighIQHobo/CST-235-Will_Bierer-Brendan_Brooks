@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> 
 
 <h:head>
 	<title>Meme</title>
@@ -12,25 +13,25 @@
 	<ui:composition template="/layouts/mainTemplate.xhtml">
 	<ui:define name="title">Home</ui:define>
 	<ui:define name="content">
-	<h:form action="lobbyController">
 	<div class="col-md-3"></div>
 	<div class="col-md-6 main-content" style="">
 	<div align="center">
+	<h:form action="lobbyController">
+	
 		<h1>Lobbies #{lobby.name}</h1><a href="javascript:void(0)"><button type="button" class="btn btn-primary" id="addLobbyBtn">Create</button></a>
-		<h1>#{lobbyFormModel.name}</h1>
-		
+	</h:form>
 	<div id="addLobby">
 		<br />
-	<h:form action="#{loginController}">
+	<h:form action="#{lobbyController}">
 	    <label for="name">Lobby Name</label>
-	    <input type="text" class="form-control" value="#{lobbyFormModel.name}" placeholder="Lobby Name"/>
+	    <h:inputText type="text" class="form-control" value="#{lobbyFormModel.name}" a:placeholder="Lobby Name"/>
 	    <label for="password">Password (Leave empty for no password)</label>
-	    <input type="password" value="#{lobbyFormModel.password}" class="form-control" placeholder="If no password, leave empty" />
-  	<h:commandButton styleClass="btn btn-primary" action="#{loginController.addLobby()}" value="Submit" />
+	    <h:inputText type="password" value="#{lobbyFormModel.password}" class="form-control" a:placeholder="If no password, leave empty" />
+  	<h:commandButton styleClass="btn btn-primary" action="#{lobbyController.addLobby()}" value="Submit" />
 	</h:form>
 </div>
 	<hr />
-	<h:dataTable value="#{lobbyService.getLobbies()}" var="o" styleClass="table-hover" style="width: 100%">
+	<h:dataTable value="#{lobbyController.service.lobbies}" var="o" styleClass="table-hover" style="width: 100%">
 		<h:column>
 			<f:facet name="header">Lobby</f:facet>
 			#{o.name}
@@ -48,9 +49,8 @@
 			<button class="btn btn-primary">Join</button>
 		</h:column>
 	</h:dataTable>
-</div>
 	</div>
-	</h:form>
+	</div>
 	</ui:define>
 	</ui:composition>
 </body> 
