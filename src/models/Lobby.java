@@ -1,18 +1,27 @@
+//Authors: Will Bierer, Brendan Brooks
+// Class: CST-235
+// Prof. Reha
+// 
+// File Description: Model for a lobby
 package models;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @ViewScoped
 @ManagedBean
-public class LobbyModel {
+public class Lobby {
 	public int id;
+	@NotNull(message = "Required field")
+	@Size(min=2, max=25)
 	public String name;
 	public String host;
 	public String password;
 	public int players;
 	
-	public LobbyModel() {
+	public Lobby() {
 		this.id = 0;
 		this.name = "";
 		this.host = "";
@@ -20,7 +29,7 @@ public class LobbyModel {
 		this.players = 1;
 	}
 	
-	public LobbyModel(int id, String name, String host, String password, int players) {
+	public Lobby(int id, String name, String host, String password, int players) {
 		super();
 		this.id = id;
 		this.name = name;

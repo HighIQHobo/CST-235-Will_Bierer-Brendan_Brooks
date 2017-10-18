@@ -1,9 +1,17 @@
+<!-- 
+Authors: Will Bierer, Brendan Brooks
+ Class: CST-235
+ Prof. Reha
+ 
+ File Description: Main page of applcation.  User can view, join, and create lobbies.
+ -->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> 
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> <!-- allows use of placeholder for inputText tag -->
 
 <h:head>
 	<title>Meme</title>
@@ -23,10 +31,11 @@
 	<div id="addLobby">
 		<br />
 	<h:form action="#{lobbyController}">
-	    <label for="name">Lobby Name</label>
-	    <h:inputText type="text" class="form-control" value="#{lobbyFormModel.name}" a:placeholder="Lobby Name"/>
-	    <label for="password">Password (Leave empty for no password)</label>
-	    <h:inputText type="password" value="#{lobbyFormModel.password}" class="form-control" a:placeholder="If no password, leave empty" />
+	    <label for="name">Lobby Name</label><br/>
+	    <h:message for="name"></h:message>
+	    <h:inputText id="name" type="text" class="form-control" value="#{lobby.name}" a:placeholder="Lobby Name"/>
+	    <label id="password" for="password">Password (Leave empty for no password)</label>
+	    <h:inputSecret type="password" value="#{lobby.password}" class="form-control" a:placeholder="If no password, leave empty" /><br/>
   	<h:commandButton styleClass="btn btn-primary" action="#{lobbyController.addLobby()}" value="Submit" />
 	</h:form>
 </div>

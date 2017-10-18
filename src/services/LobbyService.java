@@ -1,3 +1,8 @@
+//Authors: Will Bierer, Brendan Brooks
+// Class: CST-235
+// Prof. Reha
+// 
+// File Description: Service for Lobby Model that contains an ArrayList of Lobbies
 package services;
 
 import java.util.ArrayList;
@@ -9,28 +14,29 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import interfaces.LobbyBusinessInterface;
-import models.LobbyModel;
+import models.Lobby;
 
 @Stateless
 @Local(LobbyBusinessInterface.class)
-public class LobbyService implements LobbyBusinessInterface {
+public class LobbyService implements LobbyBusinessInterface 
+{
 	
-	public List<LobbyModel> lobbies = new ArrayList<LobbyModel>();
+	public List<Lobby> lobbies = new ArrayList<Lobby>();
 
 	public LobbyService()
 	{
 		for(int i = 0; i < 8; i++)
 		{
-			lobbies.add(new LobbyModel(i, "Lobby " + i, "HostUser" + i, null, 1));
+			lobbies.add(new Lobby(i, "Lobby " + i, "HostUser" + i, null, 1));
 		}
 	}
-	
-	public List<LobbyModel> getLobbies()
+	//get the entire list
+	public List<Lobby> getLobbies()
 	{
 		return this.lobbies;
 	}
-	
-	public void addLobby(LobbyModel lobby)
+	//add a new lobby to the list
+	public void addLobby(Lobby lobby)
 	{
 		lobbies.add(lobby);
 	}

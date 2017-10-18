@@ -1,17 +1,41 @@
+//Authors: Will Bierer, Brendan Brooks
+// Class: CST-235
+// Prof. Reha
+// 
+// File Description: Model for a user
 package models;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @ManagedBean
 @ViewScoped
 public class User 
 {
+	@NotNull(message = "Required field")
+	@Size(min=2, max=25)
 	private String firstName="";
+	
+	@NotNull(message = "Required field")
+	@Size(min=2, max=25)
 	private String lastName="";
+	
+	@NotNull(message = "Required field")
+	@Size(min=2, max=50)
 	private String email="";
+	
+	@NotNull(message = "Required field")
+	@Size(min=0, max=15)
 	private String phone="";
+	
+	@NotNull(message = "Required field")
+	@Size(min=2, max=25)
 	private String username="";
+	
+	@NotNull(message = "Required field")
+	@Size(min=2, max=25)
 	private String password="";
 	
 	public User() 
