@@ -14,4 +14,8 @@ public interface LobbyBusinessInterface
 {
 	public List<Lobby> getLobbies();
 	public void addLobby(Lobby lobby);
+	public Lobby getCurrentLobby(); //may need to remove
+	public void setCurrentLobby(Lobby currentLobby);
+	public Lobby getLobbyFromId(int id);
+	public boolean updateLobby(int id, String name, String password);
 }

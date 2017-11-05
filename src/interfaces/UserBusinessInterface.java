@@ -6,7 +6,6 @@
 package interfaces;
 
 import java.util.List;
-
 import models.User;
 
 public interface UserBusinessInterface
@@ -14,4 +13,8 @@ public interface UserBusinessInterface
 	public void addUser(User user);
 	public User getUser(int index);
 	public List<User> getUserList();
+	public User login(User loginFormData);
+	public boolean register(User registerFormData);
+	public void setUser(User user);
+	public User getLoggedUser();
 }

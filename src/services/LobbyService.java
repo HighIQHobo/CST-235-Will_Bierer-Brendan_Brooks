@@ -13,6 +13,7 @@ import javax.ejb.Stateless;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import data.LobbyDataService;
 import interfaces.LobbyBusinessInterface;
 import models.Lobby;
 
@@ -21,24 +22,52 @@ import models.Lobby;
 public class LobbyService implements LobbyBusinessInterface 
 {
 	
-	public List<Lobby> lobbies = new ArrayList<Lobby>();
+	//public List<Lobby> lobbies = new ArrayList<Lobby>();
+	private LobbyDataService service;
+	private Lobby currentLobby = new Lobby();
 
 	public LobbyService()
 	{
-		for(int i = 0; i < 8; i++)
-		{
-			lobbies.add(new Lobby(i, "Lobby " + i, "HostUser" + i, null, 1));
-		}
+		//service = new LobbyDataService();
+		//lobbies = service.getLobbies();
 	}
 	//get the entire list
 	public List<Lobby> getLobbies()
 	{
-		return this.lobbies;
+		service = new LobbyDataService();
+		List<Lobby> lobbies = service.getLobbies();
+		return lobbies;
 	}
+	
+	public Lobby getLobbyFromId(int id)
+	{
+		Lobby lobby = new Lobby();
+		service = new LobbyDataService();
+		
+		lobby = service.getLobbyFromId(id);
+		
+		return lobby;
+	}
+	
 	//add a new lobby to the list
 	public void addLobby(Lobby lobby)
 	{
-		lobbies.add(lobby);
+		service = new LobbyDataService();
+		service.addLobby(lobby);
+	}
+	public Lobby getCurrentLobby() {
+		return currentLobby;
+	}
+	public void setCurrentLobby(Lobby currentLobby) {
+		this.currentLobby = currentLobby;
+	}
+	
+	@Override
+	public boolean updateLobby(int id, String name, String password) {
+		service = new LobbyDataService();
+		boolean status = service.updateLobby(id, name, password);
+		
+		return status;
 	}
 	
 }

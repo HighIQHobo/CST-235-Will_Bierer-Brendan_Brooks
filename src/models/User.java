@@ -14,6 +14,8 @@ import javax.validation.constraints.Size;
 @ViewScoped
 public class User 
 {
+	private int id = -1;
+	
 	@NotNull(message = "Required field")
 	@Size(min=2, max=25)
 	private String firstName="";
@@ -104,6 +106,14 @@ public class User
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

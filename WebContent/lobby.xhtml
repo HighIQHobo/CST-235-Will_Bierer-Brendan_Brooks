@@ -1,0 +1,39 @@
+<!-- 
+Authors: Will Bierer, Brendan Brooks
+ Class: CST-235
+ Prof. Reha
+ 
+ File Description: Login/Registration page.
+ -->
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<head>
+
+</head> 
+<h:body> 
+	<ui:composition template="/layouts/mainTemplate.xhtml">
+	<ui:define name="title">Lobby</ui:define>
+	<ui:define name="content">
+	<div style="height: 400px; width: 600px; background: black; corner-radius: 3px; margin: 0 auto;"></div>
+	<div class="col-md-3"></div>
+	
+	<div class="col-md-6 main-content" style="margin-top: 50px;">
+	<div align="center">
+		<h2>#{lobby.name}</h2>
+		<p>Host: #{lobby.host}</p><hr />
+		<h:form method="post">
+			<label>Name:</label> <h:inputText value="#{lobby.name}" class="form-control" id="name"/><br />
+			<label>Password:</label> <h:inputText value="#{lobby.password}" class="form-control" id="password"/><br />
+			<h:inputHidden value="#{lobby.id}" id="id" />
+			<h:commandButton action="#{lobbyController.updateLobby}" class="btn btn-default" value="Submit" />
+		</h:form>
+	</div>
+	</div>
+	</ui:define>
+	</ui:composition>
+</h:body> 
+</html>

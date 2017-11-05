@@ -26,20 +26,19 @@ Authors: Will Bierer, Brendan Brooks
 			<div class="col-md-6" id="register-section"><h1>Register</h1></div>
 			<div class="col-md-12" style="margin-top: 30px">
 			<div class="register-form">
-				<h:form action="Registration" method="post">
-					First Name: <input type="text" class="form-control" name="firstName" /><br/><br/>
-					Last Name: <input type="text" class="form-control" name="lastName" title="" /><br/>
-					Email: <input type="text" class="form-control" name="email" title="" /><br/>
-					Phone: <input type="text" class="form-control" name="phone" title="" /><br/>
-					Username: <input type="text" class="form-control" name="username" title="" /><br/>
-					Password: <input type="text" class="form-control" name="password" title="" /><br/>
-					Confirm Password: <input type="text" class="form-control" name="confirm" title="" /><br/>
-					<input type="submit" value="Register" class="btn btn-default"/>
-					<input type="submit" value="#{LoginController.login}" class="btn btn-default "/>
+				<h:form method="post">
+					First Name: <h:inputText type="text" class="form-control" name="firstName" value="#{user.firstName}"/><br/><br/>
+					Last Name: <h:inputText type="text" class="form-control" name="lastName" title="" value="#{user.lastName}" /><br/>
+					Email: <h:inputText type="text" class="form-control" name="email" title="" value="#{user.email}" /><br/>
+					Phone: <h:inputText type="text" class="form-control" name="phone" title="" value="#{user.phone}"/><br/>
+					Username: <h:inputText type="text" class="form-control" name="username" title="" value="#{user.username}" /><br/>
+					Password: <h:inputSecret type="text" class="form-control" name="password" title="" value="#{user.password}" /><br/>
+					<!-- Confirm Password: <h:inputText type="text" class="form-control" name="confirm" title="" /><br/> -->
+					<h:commandButton type="submit" value="submit" action="#{loginController.register}" class="btn btn-default "/> 
 				</h:form>
 				</div>
 			<div class="login-form">
-				<h:form action="#{loginController}" method="post">
+				<h:form action="#{loginController.login}" method="post">
 					<label for="username">Username</label><br/>
 					<h:message for="username"></h:message><br/>
 					<h:inputText id="username" class="form-control" value="#{user.username}" /><br/>

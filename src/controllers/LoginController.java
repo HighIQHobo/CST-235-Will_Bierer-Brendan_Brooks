@@ -10,6 +10,8 @@ import javax.faces.bean.*;
 import javax.faces.context.*;
 import javax.inject.Inject;
 
+import data.LobbyDataService;
+import data.UserDataService;
 import interfaces.LobbyBusinessInterface;
 import interfaces.UserBusinessInterface;
 import models.Lobby;
@@ -29,20 +31,40 @@ public class LoginController {
 		FacesContext context = FacesContext.getCurrentInstance();
 		User user = context.getApplication().evaluateExpressionGet(context, "#{user}", User.class);
 		
-		//Use a foreach loop to check each object in the ArrayList
-		for (User u : service.getUserList())
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("User", user);
+
+		user = service.login(user);
+		
+		if(user.getId() == -1)
 		{
-			System.out.println("LOOP user + pass: " + u.getUsername() + " " + u.getPassword() + " ||| " + user.getUsername() + " " + user.getPassword());
-			if( u.getUsername().equals(user.getUsername()) && u.getPassword().equals(user.getPassword())) 
-			{
-				//go to main page if login data is correct
-				return "main.xhtml";
-			}
+			return "login.xhtml";
 		}
+		else
+		{
+			service.setUser(user);
+			System.out.println(service.getLoggedUser().getUsername());
+			return "main.xhtml";
+		}
+	}
+	
+	public String register()
+	{
+		FacesContext context = FacesContext.getCurrentInstance();
+		User user = context.getApplication().evaluateExpressionGet(context, "#{user}", User.class);
 		
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("User", user);
-		//refresh page if login data is incorrect
-		return "login.xhtml";
+		
+		boolean status = service.register(user);
+		
+		if(status)
+		{
+			service.setUser(user);
+			return "main.xhtml";
+		}
+		else
+		{
+			return "login.xhtml";
+		}
 	}
 	
 	public UserBusinessInterface getService() 
