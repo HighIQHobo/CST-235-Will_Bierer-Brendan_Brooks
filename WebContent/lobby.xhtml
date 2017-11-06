@@ -9,7 +9,8 @@ Authors: Will Bierer, Brendan Brooks
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"> 
 
 <head>
 
@@ -30,6 +31,9 @@ Authors: Will Bierer, Brendan Brooks
 			<label>Password:</label> <h:inputText value="#{lobby.password}" class="form-control" id="password"/><br />
 			<h:inputHidden value="#{lobby.id}" id="id" />
 			<h:commandButton action="#{lobbyController.updateLobby}" class="btn btn-default" value="Submit" />
+		</h:form>
+		<h:form method="post">
+			<h:commandLink action="#{lobbyController.deleteLobby}" value="Delete"/>
 		</h:form>
 	</div>
 	</div>

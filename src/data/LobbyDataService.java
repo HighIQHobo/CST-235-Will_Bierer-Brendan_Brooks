@@ -127,5 +127,38 @@ public class LobbyDataService {
 		
 		return status;
 	}
-
+	
+	public boolean deleteLobby(int id)
+	{
+		String sql = "DELETE FROM lobbies WHERE id=" + id;
+		boolean status = false;
+		
+		try
+		{
+			conn = DriverManager.getConnection(url);
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			status = true;
+		}
+		catch(SQLException e)
+		{
+			 e.printStackTrace();
+		}
+		finally
+		{
+		 if(conn != null)
+            {
+                try
+                {
+                    conn.close();
+                }
+                catch(SQLException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+		}
+		
+		return status;
+	}
 }

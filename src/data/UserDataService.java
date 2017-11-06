@@ -51,6 +51,7 @@ public class UserDataService {
 			{
 				user.setId(rs.getInt("id"));
 				user.setEmail(rs.getString("email"));
+				user.setPhone(rs.getString("phone"));
 				user.setUsername(rs.getString("username"));
 				user.setFirstName(rs.getString("firstName"));
 				user.setLastName(rs.getString("lastName"));
@@ -95,10 +96,115 @@ public class UserDataService {
                     e.printStackTrace();
                 }
             }
-		 //System.out.println("------------------------!!!!!!!!DONE!!!!!!!---------------------------");
 		}
 		
 		return status;
 	}
-
+	
+	public boolean updateUser(User user)
+	{
+		String sql = "UPDATE users SET firstName='" + user.getFirstName() + "', lastName='" + user.getLastName() + "', email='" + user.getEmail() + "', phone='" + user.getPhone() + "', username='" + user.getUsername() + "' WHERE id=" + user.getId();
+		System.out.println(sql);
+		boolean status = false;
+		
+		try
+		{
+			conn = DriverManager.getConnection(url);
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			status = true;
+		}
+		catch(SQLException e)
+		{
+			 e.printStackTrace();
+		}
+		finally
+		{
+		 if(!user.getPassword().equals(null) || !user.getPassword().equals("") || !user.getPassword().equals(" "))
+		 {
+			 System.out.println(user.getPassword());
+			 this.updatePassword(user);
+		 }
+		 if(conn != null)
+            {
+                try
+                {
+                    conn.close();
+                }
+                catch(SQLException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+		}
+		
+		return status;
+	}
+	
+	public boolean updatePassword(User user)
+	{
+		String sql = "UPDATE users SET password='" + user.getPassword() + "' WHERE id=" + user.getId();
+		boolean status = false;
+		
+		try
+		{
+			conn = DriverManager.getConnection(url);
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			status = true;
+		}
+		catch(SQLException e)
+		{
+			 e.printStackTrace();
+		}
+		finally
+		{
+		 if(conn != null)
+            {
+                try
+                {
+                    conn.close();
+                }
+                catch(SQLException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+		}
+		
+		return status;
+	}
+	public boolean deleteUser(User user)
+	{
+		String sql = "DELETE FROM users WHERE id=" + user.getId();
+		boolean status = false;
+		
+		try
+		{
+			conn = DriverManager.getConnection(url);
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			status = true;
+		}
+		catch(SQLException e)
+		{
+			 e.printStackTrace();
+		}
+		finally
+		{
+		 if(conn != null)
+            {
+                try
+                {
+                    conn.close();
+                }
+                catch(SQLException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+		}
+		
+		return status;
+	}
 }

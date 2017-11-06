@@ -70,4 +70,11 @@ public class LobbyService implements LobbyBusinessInterface
 		return status;
 	}
 	
+	@Override
+	public boolean deleteLobby(int id) {
+		service = new LobbyDataService();
+		boolean status = service.deleteLobby(id);
+		return status;
+	}
+	
 }

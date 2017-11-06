@@ -18,4 +18,5 @@ public interface LobbyBusinessInterface
 	public void setCurrentLobby(Lobby currentLobby);
 	public Lobby getLobbyFromId(int id);
 	public boolean updateLobby(int id, String name, String password);
+	public boolean deleteLobby(int id);
 }

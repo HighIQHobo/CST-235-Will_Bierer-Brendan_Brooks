@@ -17,4 +17,6 @@ public interface UserBusinessInterface
 	public boolean register(User registerFormData);
 	public void setUser(User user);
 	public User getLoggedUser();
+	public boolean updateUser(User user);
+	public boolean deleteUser(User user);
 }

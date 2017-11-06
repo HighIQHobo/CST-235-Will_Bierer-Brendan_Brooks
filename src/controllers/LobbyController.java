@@ -47,6 +47,7 @@ public class LobbyController {
 		
 		String id = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
 		lobby = service.getLobbyFromId(Integer.parseInt(id));
+		service.setCurrentLobby(lobby);
 		
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("lobby", lobby);
 		
@@ -66,6 +67,16 @@ public class LobbyController {
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("lobby", lobby); 
 		
 		return "lobby.xhtml";
+	}
+	
+	public String deleteLobby()
+	{
+		if(userService.getLoggedUser().getId() == -1) return "login.xhtml";
+		if(!userService.getLoggedUser().getUsername().equals(service.getCurrentLobby().host)) return "lobby.xhtml";
+		
+		boolean status = service.deleteLobby(service.getCurrentLobby().getId());
+		
+		return "main.xhtml";
 	}
 	
 	public LobbyBusinessInterface getService() {

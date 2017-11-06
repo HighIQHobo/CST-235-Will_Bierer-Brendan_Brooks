@@ -58,7 +58,9 @@ public class UserService implements UserBusinessInterface
 	{
 		UserDataService userservice = new UserDataService();
 		
-		return userservice.login(loginFormData);
+		User user = userservice.login(loginFormData);
+		
+		return user;
 	}
 	
 	public boolean register(User registerFormData)
@@ -66,5 +68,21 @@ public class UserService implements UserBusinessInterface
 		UserDataService userservice = new UserDataService();
 
 		return userservice.register(registerFormData);
+	}
+
+	@Override
+	public boolean updateUser(User user) {
+		UserDataService userservice = new UserDataService();
+		boolean status = userservice.updateUser(user);
+		System.out.println(status);
+		return status;
+	}
+
+	@Override
+	public boolean deleteUser(User user) {
+		UserDataService userservice = new UserDataService();
+		boolean status = userservice.deleteUser(user);
+		
+		return status;
 	}
 }

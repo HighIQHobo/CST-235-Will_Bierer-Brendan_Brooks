@@ -36,8 +36,6 @@ public class User
 	@Size(min=2, max=25)
 	private String username="";
 	
-	@NotNull(message = "Required field")
-	@Size(min=2, max=25)
 	private String password="";
 	
 	public User() 

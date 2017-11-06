@@ -31,9 +31,9 @@ public class LoginController {
 		FacesContext context = FacesContext.getCurrentInstance();
 		User user = context.getApplication().evaluateExpressionGet(context, "#{user}", User.class);
 		
-		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("User", user);
-
 		user = service.login(user);
+		
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
 		
 		if(user.getId() == -1)
 		{
@@ -65,6 +65,31 @@ public class LoginController {
 		{
 			return "login.xhtml";
 		}
+	}
+	
+	public String updateUser()
+	{
+		if(service.getLoggedUser().getId() == -1) return "login.xhtml";
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		User user = context.getApplication().evaluateExpressionGet(context, "#{user}", User.class);
+		
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
+		
+		service.updateUser(user);
+		service.setUser(user);
+		
+		return "main.xhtml";
+		
+	}
+	
+	public String deleteUser()
+	{
+		User user = service.getLoggedUser();
+		
+		service.deleteUser(user);
+		
+		return "login.xhtml";
 	}
 	
 	public UserBusinessInterface getService() 
