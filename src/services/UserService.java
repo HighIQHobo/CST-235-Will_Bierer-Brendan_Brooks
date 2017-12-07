@@ -48,6 +48,7 @@ public class UserService implements UserBusinessInterface
 	{
 		return users.get(index);
 	}
+	
 	//get the ArrayList
 	public List<User> getUserList()
 	{
